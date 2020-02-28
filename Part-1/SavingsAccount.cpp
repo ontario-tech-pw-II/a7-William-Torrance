@@ -5,13 +5,15 @@ using namespace std;
 // constructor initializes balance and interest rate
 SavingsAccount::SavingsAccount( double initialBalance, double rate ) : Account( initialBalance ) 
 {
-	// your code
+    interestRate = rate;
 }
 
 double SavingsAccount::calculateInterest() {
-	// your code
+    Account::setBalance(Account::getBalance() * interestRate);
 } 
 void SavingsAccount::display(ostream & os) const
 {
-	// your code
+    os << "Account type: Savings" << endl;
+    os << "Balance: $" << Account::getBalance() << endl;
+    os << "Interest Rate (%): " << interestRate << endl;
 }
